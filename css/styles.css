@@ -52,21 +52,9 @@
 }
 
 button {
+    font-size: 25px;
     width: 150px;
     height: 125px;
-}
-
-.equals-spacer-container {
-    display: flex;
-    width: 600px;
-    height: 250px;
-}
-
-.equals-spacer {
-    display: flex;
-    flex-wrap: wrap;
-    width: 450px;
-    height: 250px;
 }
 
 .btn-clear {
@@ -79,6 +67,3 @@ button {
     height: 125px;
 }
 
-.btn-equals {
-    height: 250px;
-}
