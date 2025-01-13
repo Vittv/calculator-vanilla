@@ -21,11 +21,29 @@
     border-radius: 2px; */
 }
 
+/* Display section */
 .display-container {
     width: 600px;
     height: 200px;
 }
 
+.operation {
+    text-align: right;
+    font-size: 25px;
+    color: grey;
+    padding: 10px;
+    height: 25px;
+}
+
+.display {
+    text-align: right;
+    font-size: 60px;
+    color: white;
+    padding: 10px;
+    height: 60px;
+}
+
+/* Button section */
 .btn-container {
     display: flex;
     flex-wrap: wrap;
