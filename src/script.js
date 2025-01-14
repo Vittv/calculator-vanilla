@@ -179,7 +179,7 @@ function operateNumbers(operator, firstNumber, secondNumber) {
         case "x":
             result = multiplyTwoNumbers(firstNumber, secondNumber);
             break;
-        case "÷":
+        case "/":
             result = divideTwoNumbers(firstNumber, secondNumber);
             break;
         default:
