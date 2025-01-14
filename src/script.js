@@ -188,6 +188,49 @@ function operateNumbers(operator, firstNumber, secondNumber) {
     return roundToDisplay(result); // Round the result before returning
 }
 
+// Keyboard support
+document.addEventListener("keydown", (e) => {
+    const key = e.key;
+
+    // Handle number keys (0-9)
+    if (!isNaN(key)) {
+        const button = [...numberButtons].find(btn => btn.textContent === key);
+        if (button) button.click();
+    }
+
+    // Handle operator keys (+, -, *, /)
+    const operatorMap = {
+        "+": "+",
+        "-": "-",
+        "*": "x", // Mapping "*" to "x" for multiplication
+        "/": "/"
+    };
+
+    if (operatorMap[key]) {
+        const button = [...operatorButtons].find(btn => btn.textContent === operatorMap[key]);
+        if (button) button.click();
+    }
+
+    // Handle decimal point (.)
+    if (key === ".") {
+        decimalButton.click();
+    }
+
+    // Handle backspace (Backspace)
+    if (key === "Backspace") {
+        backspaceButton.click();
+    }
+
+    // Handle clear (Escape key)
+    if (key === "Escape") {
+        clearButton.click();
+    }
+
+    // Handle equals (= or Enter key)
+    if (key === "=" || key === "Enter") {
+        equalsButton.click();
+    }
+});
 /* 
 
 Todo
