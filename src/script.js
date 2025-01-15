@@ -231,13 +231,3 @@ document.addEventListener("keydown", (e) => {
         equalsButton.click();
     }
 });
-/* 
-
-Todo
-
-1 - Add keyboard support
-2 - Add credits footer
-3 - Finish design
-
-
-*/

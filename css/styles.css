@@ -106,7 +106,18 @@ button {
     background-color: #444;
 }
 
-button:active {
+.number:active,
+.btn-decimal:active,
+.btn-zero:active, 
+.operator:active,
+.btn-clear:active,
+.btn-backspace:active,
+.btn-equals:active {
+    background-color: #222;
+    color: lightgray;
+}
+
+.button-active {
     background-color: #222;
     color: lightgray;
 }
