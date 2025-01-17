@@ -237,8 +237,11 @@ document.addEventListener("keydown", (e) => {
         backspaceButton.click();
     }
 
-    // Handle clear (Escape key)
+    // Handle clear (c or Escape key)
     if (key === "Escape") {
+        clearButton.click();
+    }
+    if (key === "c") {
         clearButton.click();
     }
 
