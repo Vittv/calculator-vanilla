@@ -7,7 +7,7 @@ const clearButton = document.querySelector(".btn-clear");
 const decimalButton = document.querySelector(".btn-decimal");
 const equalsButton = document.querySelector(".btn-equals");
 
-const MAX_LENGTH = 12; // Maximum number of digits allowed
+const MAX_LENGTH = 16; // Maximum number of digits allowed
 
 let isTypingNewNumber = false;
 let firstNumber = null;
@@ -140,10 +140,17 @@ equalsButton.addEventListener("click", () => {
         const secondNumber = parseFloat(displayBottom.textContent);
         const result = operateNumbers(operator, firstNumber, secondNumber);
 
-        operationTop.textContent = `${firstNumber} ${operator} ${secondNumber} =`
-        displayBottom.textContent = result;
+        // Limit the result length to MAX_LENGTH
+        const resultString = result.toString();
+        if (resultString.length > MAX_LENGTH) {
+            // Truncate or round the result to fit within MAX_LENGTH
+            displayBottom.textContent = resultString.slice(0, MAX_LENGTH);
+        } else {
+            displayBottom.textContent = result;
+        }
 
-        firstNumber = result;
+        operationTop.textContent = `${firstNumber} ${operator} ${secondNumber} =`
+        firstNumber = parseFloat(displayBottom.textContent); // Update firstNumber with the result
         isTypingNewNumber = true;
         operator = null;
         isResultDisplayed = true; // Set result display flag
@@ -207,11 +214,11 @@ document.addEventListener("keydown", (e) => {
         if (button) button.click();
     }
 
-    // Handle operator keys (+, -, *, /)
+    // Handle operator keys (+, -, x, /)
     const operatorMap = {
         "+": "+",
         "-": "-",
-        "*": "x", // Mapping "*" to "x" for multiplication
+        "x": "x",
         "/": "/"
     };
 
