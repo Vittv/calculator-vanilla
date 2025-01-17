@@ -101,8 +101,7 @@ button {
 
 .operator:hover,
 .btn-clear:hover,
-.btn-backspace:hover,
-.btn-equals:hover {
+.btn-backspace:hover {
     background-color: #444;
 }
 
@@ -111,8 +110,7 @@ button {
 .btn-zero:active, 
 .operator:active,
 .btn-clear:active,
-.btn-backspace:active,
-.btn-equals:active {
+.btn-backspace:active {
     background-color: #222;
     color: lightgray;
 }
@@ -122,6 +120,18 @@ button {
     color: lightgray;
 }
 
+.btn-equals {
+    background-color: rgb(184, 184, 184);
+    color: black;
+}
+
+.btn-equals:hover {
+    background-color: rgb(142, 142, 142);
+}
+
+.btn-equals:active {
+    background-color: rgb(104, 104, 104);
+}
 /* footer */
 footer {
     position: fixed;
