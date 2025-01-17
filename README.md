@@ -6,6 +6,7 @@ It's a basic calculator. Called vanilla because I made one using React before. I
 ### Keyboard Commands:
 
 - Numbers: 1, 2, 3, 4, 5, 6, 7, 8, 9, 0
+- Decimal: .
 - Operators: +, -, x, /
 - Equals: = or Enter
 - Backspace: Backspace
