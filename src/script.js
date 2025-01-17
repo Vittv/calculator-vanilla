@@ -33,6 +33,7 @@ numberButtons.forEach((button) => {
             displayBottom.textContent = ""; // Clear the bottom for new input
             isTypingNewNumber = false;
         }
+        
         // Add the number only if it doesn't exceed the max length
         if (displayBottom.textContent.length < MAX_LENGTH) {
             displayBottom.textContent += button.textContent;
@@ -71,10 +72,13 @@ operatorButtons.forEach((button) => {
         // If no number has been entered yet, allow starting with a negative number
         if (firstNumber === null && displayBottom.textContent === "0") {
             if (button.textContent === "-") {
+                if (displayBottom.textContent === "-") {
+                    return; // Ignore subsequent "-" presses
+                }
                 displayBottom.textContent = "-"; // Start typing a negative number
                 isTypingNewNumber = false; // Continue typing
             }
-            return; // Exist early as no operation is yet being performed
+            return; // Exit early as no operation is yet being performed
         }
 
         if (operator && firstNumber !== null && !isTypingNewNumber) {
@@ -94,7 +98,11 @@ operatorButtons.forEach((button) => {
             // Store the first number and operator for a new operation
             firstNumber = currentNumber;
             operator = button.textContent;
-            operationTop.textContent = `${firstNumber} ${operator}`;
+
+            if (!isNaN(firstNumber)) {
+                operationTop.textContent = `${firstNumber} ${operator}`;
+            }
+
             isTypingNewNumber = true; // Ready for new number input
         }
 
@@ -127,7 +135,8 @@ clearButton.addEventListener("click", () => {
 
 // Equals button
 equalsButton.addEventListener("click", () => {
-    if (operationTop.textContent !== "" && displayBottom.textContent !== "") {
+    // Only allow the equals button to work if there is a valid operator
+    if (operator && operationTop.textContent !== "" && displayBottom.textContent !== "") {
         const secondNumber = parseFloat(displayBottom.textContent);
         const result = operateNumbers(operator, firstNumber, secondNumber);
 
